@@ -14,7 +14,7 @@ interface TreeProps {
   searchTerm?: string
   status?: string
   sensorType?: string
-  setComponent: any
+  setComponent: (data: TreeNodeType) => void
   selected: string
 }
 

@@ -10,7 +10,7 @@ import { TbPointFilled } from "react-icons/tb"
 
 interface Props {
   data: TreeNodeType
-  setComponent: any
+  setComponent: (data: TreeNodeType) => void
   selected: string
 }
 
