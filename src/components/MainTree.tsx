@@ -4,6 +4,7 @@ import {
   AssetTreeType,
   LocationTreeType,
   SearchProperty,
+  TreeNodeType,
 } from "../types/assetsTree"
 import { filterTreeByProperty } from "../utils/filterTreeByProperty"
 
@@ -13,6 +14,8 @@ interface TreeProps {
   searchTerm?: string
   status?: string
   sensorType?: string
+  setComponent: any
+  selected: string
 }
 
 export default function MainTree({
@@ -21,6 +24,8 @@ export default function MainTree({
   searchTerm = "",
   status = "",
   sensorType = "",
+  setComponent,
+  selected,
 }: TreeProps) {
   const roots = buildTree(locations, assets)
   const criteria: Array<{ property: SearchProperty; searchTerm: string }> = []
@@ -50,7 +55,12 @@ export default function MainTree({
   return (
     <>
       {data.map((root) => (
-        <TreeNode key={root.id} data={root} />
+        <TreeNode
+          key={root.id}
+          data={root}
+          setComponent={setComponent}
+          selected={selected}
+        />
       ))}
     </>
   )

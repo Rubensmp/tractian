@@ -10,14 +10,20 @@ import { TbPointFilled } from "react-icons/tb"
 
 interface Props {
   data: TreeNodeType
+  setComponent: any
+  selected: string
 }
 
-export default function TreeNode({ data }: Props) {
+export default function TreeNode({ data, setComponent, selected }: Props) {
   const [expanded, setExpanded] = useState(false)
 
   const handleToggle = () => {
     if (data.children && data.children?.length > 0) setExpanded(!expanded)
+    setComponent(data)
   }
+
+  const isSelected = selected === data.id
+  const typeIconColor = isSelected ? colors.white : colors["blue-500"]
 
   const handleItemTypeIcon = () => {
     if (!!data.sensorType)
@@ -25,7 +31,7 @@ export default function TreeNode({ data }: Props) {
         <AiOutlineCodepen
           size={22}
           className="flex-shrink-0"
-          color={colors["blue-500"]}
+          color={typeIconColor}
         />
       )
     if (!!data.locationId && !!!data.sensorId)
@@ -33,7 +39,7 @@ export default function TreeNode({ data }: Props) {
         <IoCubeOutline
           size={22}
           className="flex-shrink-0"
-          color={colors["blue-500"]}
+          color={typeIconColor}
         />
       )
     if (!!data.parentId && !!!data.sensorId)
@@ -41,14 +47,15 @@ export default function TreeNode({ data }: Props) {
         <MdOutlineLocationOn
           size={22}
           className="flex-shrink-0"
-          color={colors["blue-500"]}
+          color={typeIconColor}
         />
       )
+
     return (
       <MdOutlineLocationOn
         size={22}
         className="flex-shrink-0"
-        color={colors["blue-500"]}
+        color={typeIconColor}
       />
     )
   }
@@ -89,17 +96,29 @@ export default function TreeNode({ data }: Props) {
 
   return (
     <div className="flex flex-col gap-[4px]">
-      <div className="flex items-center cursor-pointer" onClick={handleToggle}>
+      <div
+        className={`flex items-center cursor-pointer ${
+          isSelected && "bg-blue-500"
+        }`}
+        onClick={handleToggle}
+      >
         {handleChevron()}
         {handleItemTypeIcon()}
-        <div className="px-[4px]">{data.name}</div>
+        <div className={`px-[4px] text-sm ${isSelected && "text-white"}`}>
+          {data.name}
+        </div>
         {handleSensorIcon()}
       </div>
       <div className="flex flex-col">
         {data.children && expanded && (
           <div className="ml-[20px]">
             {data.children.map((child) => (
-              <TreeNode key={child.id} data={child} />
+              <TreeNode
+                key={child.id}
+                data={child}
+                setComponent={setComponent}
+                selected={selected}
+              />
             ))}
           </div>
         )}

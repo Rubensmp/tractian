@@ -17,6 +17,7 @@ import { colors } from "../../styles/colors"
 
 export default function Home() {
   const [company, setCompany] = useState<CompanyType | undefined>(undefined)
+  const [component, setComponent] = useState<any>(null)
   const [searchTerm, setSearchTerm] = useState("")
   const [statusTerm, setStatusTerm] = useState("")
   const [sensorType, setSensorType] = useState("")
@@ -101,7 +102,7 @@ export default function Home() {
                   value={searchTerm}
                   onChange={handleSearchChange}
                   placeholder="Buscar Ativo ou Local"
-                  className="flex flex-1 px-[12px] py-[4px] focus:outline-none"
+                  className="flex flex-1 px-[12px] py-[4px] focus:outline-none text-sm"
                 />
                 <AiOutlineSearch color={colors["gray-800"]} />
               </div>
@@ -114,20 +115,23 @@ export default function Home() {
                     searchTerm={searchTerm}
                     status={statusTerm}
                     sensorType={sensorType}
+                    setComponent={setComponent}
+                    selected={component.id}
                   />
                 )}
               </div>
             </div>
             <div>
-              {locations.data && assets.data && (
+              {/* {locations.data && assets.data && (
                 <MainTree
                   locations={locations.data}
                   assets={assets.data}
                   searchTerm={searchTerm}
                   status={statusTerm}
                   sensorType={sensorType}
+                  setComponent={setComponent}
                 />
-              )}
+              )} */}
             </div>
           </div>
         </div>
