@@ -26,23 +26,9 @@ export default function TreeNode({ data, setComponent, selected }: Props) {
   const typeIconColor = isSelected ? colors.white : colors["blue-500"]
 
   const handleItemTypeIcon = () => {
-    if (!!data.sensorType)
-      return (
-        <AiOutlineCodepen
-          size={22}
-          className="flex-shrink-0"
-          color={typeIconColor}
-        />
-      )
-    if (!!data.locationId && !!!data.sensorId)
-      return (
-        <IoCubeOutline
-          size={22}
-          className="flex-shrink-0"
-          color={typeIconColor}
-        />
-      )
-    if (!!data.parentId && !!!data.sensorId)
+    const isLocation = !("sensorType" in data)
+
+    if (isLocation) {
       return (
         <MdOutlineLocationOn
           size={22}
@@ -50,14 +36,34 @@ export default function TreeNode({ data, setComponent, selected }: Props) {
           color={typeIconColor}
         />
       )
+    } else {
+      if (!!data.sensorType)
+        return (
+          <AiOutlineCodepen
+            size={22}
+            className="flex-shrink-0"
+            color={typeIconColor}
+          />
+        )
 
-    return (
-      <MdOutlineLocationOn
-        size={22}
-        className="flex-shrink-0"
-        color={typeIconColor}
-      />
-    )
+      if (!!data.locationId && !!!data.sensorId)
+        return (
+          <IoCubeOutline
+            size={22}
+            className="flex-shrink-0"
+            color={typeIconColor}
+          />
+        )
+
+      if (!!data.parentId && !!!data.sensorId)
+        return (
+          <IoCubeOutline
+            size={22}
+            className="flex-shrink-0"
+            color={typeIconColor}
+          />
+        )
+    }
   }
 
   const handleChevron = () => {

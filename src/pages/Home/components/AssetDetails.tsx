@@ -15,6 +15,7 @@ export default function AssetDetails({ data }: AssetDetailsProps) {
   const accountableLetter = data?.sensorType === "vibration" ? "M" : "E"
 
   const showDetails = !!data?.sensorId || !!data?.gatewayId
+
   return (
     <div className="flex flex-col flex-1 border-[1px] border-gray-200 rounded-[2px]">
       {data ? (
