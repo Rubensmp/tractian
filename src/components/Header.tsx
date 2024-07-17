@@ -1,4 +1,3 @@
-import React, { ReactNode } from "react"
 import { CompanyType } from "../types/company"
 import ToggleButton from "./ToggleButton"
 import logo from "../assets/logo.png"
@@ -6,7 +5,7 @@ import { AiOutlineGold } from "react-icons/ai"
 
 interface HeaderProps {
   data?: CompanyType[]
-  setCompany: (data: CompanyType) => void
+  setCompany: (data: CompanyType | undefined) => void
   company?: CompanyType
 }
 export default function Header({ data, setCompany, company }: HeaderProps) {

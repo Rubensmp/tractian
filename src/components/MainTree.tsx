@@ -49,7 +49,11 @@ export default function MainTree({
   })
 
   if (data.length === 0) {
-    return <div>No results found</div>
+    return (
+      <div className="flex flex-1  justify-center p-[24px]">
+        <div className="text-gray-700 text-xl font-medium">Sem resultados</div>
+      </div>
+    )
   }
 
   return (
