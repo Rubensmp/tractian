@@ -4,14 +4,14 @@ import { colors } from "../styles/colors"
 import { TreeNodeType } from "../types/assetsTree"
 
 import { AiOutlineCodepen, AiOutlineDown, AiOutlineUp } from "react-icons/ai"
-import { MdBolt, MdOutlineLocationOn } from "react-icons/md"
+import { MdOutlineLocationOn } from "react-icons/md"
 import { IoCubeOutline } from "react-icons/io5"
-import { TbPointFilled } from "react-icons/tb"
+import { SensorIcon } from "../pages/Home/components/SensorIcon"
 
 interface Props {
   data: TreeNodeType
   setComponent: (data: TreeNodeType) => void
-  selected: string
+  selected?: string
 }
 
 export default function TreeNode({ data, setComponent, selected }: Props) {
@@ -82,18 +82,6 @@ export default function TreeNode({ data, setComponent, selected }: Props) {
     }
   }
 
-  const handleSensorIcon = () => {
-    const iconColor = data.status === "alert" ? colors.red : colors.green
-    const iconType =
-      data.sensorType === "energy" ? (
-        <MdBolt color={iconColor} className="flex-shrink-0" />
-      ) : (
-        <TbPointFilled color={iconColor} className="flex-shrink-0" />
-      )
-
-    return (data.status || data.sensorType) && iconType
-  }
-
   return (
     <div className="flex flex-col gap-[4px]">
       <div
@@ -107,7 +95,7 @@ export default function TreeNode({ data, setComponent, selected }: Props) {
         <div className={`px-[4px] text-sm ${isSelected && "text-white"}`}>
           {data.name}
         </div>
-        {handleSensorIcon()}
+        {data && <SensorIcon data={data} />}
       </div>
       <div className="flex flex-col">
         {data.children && expanded && (
