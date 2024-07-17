@@ -15,7 +15,7 @@ interface TreeProps {
   status?: string
   sensorType?: string
   setComponent: (data: TreeNodeType) => void
-  selected: string
+  selected?: string
 }
 
 export default function MainTree({
