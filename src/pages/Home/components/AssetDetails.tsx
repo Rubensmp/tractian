@@ -31,7 +31,10 @@ export default function AssetDetails({ data }: AssetDetailsProps) {
           {showDetails && (
             <div className="flex flex-col gap-[24px] p-[24px]">
               <div className="flex flex-1 flex-col gap-[24px] lg:flex-row lg:items-center border-b-[1px] border-gray-200 lg:pb-[24px]">
-                <div className="box-content h-[226px] bg-blue-50 border-dashed rounded-[4px] border-[2px] border-blue-400 flex gap-[5px] flex-col items-center justify-center sm:w-[336px] ">
+                <div
+                  onClick={() => alert("Sem implementação.")}
+                  className="box-content h-[226px] bg-blue-50 border-dashed rounded-[4px] border-[2px] border-blue-400 flex gap-[5px] flex-col items-center justify-center sm:w-[336px] cursor-pointer"
+                >
                   <AiOutlineInbox size={42} color={colors["blue-400"]} />
                   <div className="text-sm text-blue-500 font-medium">
                     Adicionar imagem do Ativo
