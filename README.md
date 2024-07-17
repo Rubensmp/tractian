@@ -1,13 +1,15 @@
-#Tractian Frontend Challenge
+# Tractian Frontend Challenge
+
 [Link to challenge repository on Github](https://github.com/tractian/challenges/tree/main/front-end)
-##Run project
+
+## Run project
 
 ### `yarn start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-##Tools used
+## Tools used
 
 - React
 - Typescript
@@ -16,10 +18,11 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 - axios
 - react-icons
 
-##Video demonstration
+## Video demonstration
+
 WIP
 
-##Improvement points
+## Improvement points
 
 - Review my code for any potential refactoring to improve readability and maintainability.
 - Take some time to work on repeated styles on tailwind
