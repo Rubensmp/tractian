@@ -39,7 +39,12 @@ export default function Home() {
 
   return (
     <div className="flex flex-col h-screen">
-      <Header data={companies.data} setCompany={setCompany} company={company} />
+      <Header
+        data={companies.data}
+        setCompany={setCompany}
+        company={company}
+        isLoading={companies.isLoading}
+      />
       <div className="flex flex-1 bg-gray-150 p-[8px]">
         <div className="flex flex-1 flex-col gap-[12px] p-[16px] bg-white border-[1px] border-gray-200 rounded-[4px]">
           {company ? (
@@ -101,6 +106,7 @@ export default function Home() {
                   setComponent={setComponent}
                   statusTerm={statusTerm}
                   componentId={component?.id}
+                  isLoading={locations.isLoading || assets.isLoading}
                 />
                 <AssetDetails data={component} />
               </div>
