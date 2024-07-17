@@ -9,7 +9,7 @@
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-## Tools used
+## Tools used on this project
 
 - React
 - Typescript
@@ -20,7 +20,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ## Video demonstration
 
-WIP
+[Video on youtube](https://youtu.be/sdQ26TXjtmg)
 
 ## Improvement points
 
